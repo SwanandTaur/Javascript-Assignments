@@ -155,8 +155,6 @@
 //     }
 // }
 
-
-
 // Q. Print numbers between two user inputs Input start and end using prompt() -> print all between.
 
 // let start = prompt("Enter starting from :");
@@ -185,20 +183,48 @@
 //   }
 // }
 
-
 // Q. Print only first 3 odd numbers from 1 to 20 Use loop. Stop with break after 3 odd prints.
 
-let oddCount=0;
+// let oddCount=0;
 
-for(let i=1;i<=20;i++){
-    if(i%2 !== 0){
-        console.log(i);
-        oddCount++;
-        if(oddCount === 3) break;
-    }
-}
+// for(let i=1;i<=20;i++){
+//     if(i%2 !== 0){
+//         console.log(i);
+//         oddCount++;
+//         if(oddCount === 3) break;
+//     }
+// }
 
 // Output :
-    // 1
-    // 3
-    // 5
+// 1
+// 3
+// 5
+
+// Q. Ask user 5 numbers.Count how many are positive Use loop + condition + counter.
+
+let positiveCount = 0;
+let num;
+
+for (let i = 1; i < 6; i++) {
+  num = prompt("Enter a Number :");
+  if (num === null) {
+    console.error("Cancelled input!");
+    break;
+  } else if (num.trim() === "") {
+    console.error("Empty Input!");
+    continue;
+  } else {
+    num = Number(num);
+    if (isNaN(num)) {
+      console.error("Invalid Input!");
+      continue;
+    } else {
+        console.log(num);
+        if(num > 0){
+            positiveCount++;
+        }
+    }
+  }
+}
+
+console.log(`There are ${positiveCount} numbers are positive.`);
