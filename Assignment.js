@@ -202,29 +202,59 @@
 
 // Q. Ask user 5 numbers.Count how many are positive Use loop + condition + counter.
 
-let positiveCount = 0;
-let num;
+// let positiveCount = 0;
+// let num;
 
-for (let i = 1; i < 6; i++) {
-  num = prompt("Enter a Number :");
-  if (num === null) {
-    console.error("Cancelled input!");
-    break;
-  } else if (num.trim() === "") {
-    console.error("Empty Input!");
-    continue;
+// for (let i = 1; i < 6; i++) {
+//   num = prompt("Enter a Number :");
+//   if (num === null) {
+//     console.error("Cancelled input!");
+//     break;
+//   } else if (num.trim() === "") {
+//     console.error("Empty Input!");
+//     continue;
+//   } else {
+//     num = Number(num);
+//     if (isNaN(num)) {
+//       console.error("Invalid Input!");
+//       continue;
+//     } else {
+//         console.log(num);
+//         if(num > 0){
+//             positiveCount++;
+//         }
+//     }
+//   }
+// }
+
+// console.log(`There are ${positiveCount} numbers are positive.`);
+
+// Q. ATM Simulator - Allow 3 withdrawals Starts with rs 1000 balance.Ask withdrawal amount 3 times.If enough balance -> deduct Else -> print "Insufficient Balance".
+
+let balance = 1000;
+let count = 0;
+console.log(`Balance : ${balance}`);
+while (balance >= 0 && count < 3) {
+  let withdrawal = prompt("Withdrawal money :");
+  if (withdrawal === null) {
+    console.error("Cancle withdrawal!");
+  } else if (withdrawal.trim() === "") {
+    console.error("Blanck withdrawal!");
   } else {
-    num = Number(num);
-    if (isNaN(num)) {
-      console.error("Invalid Input!");
-      continue;
+    withdrawal = Number(withdrawal);
+    if (isNaN(withdrawal)) {
+      console.error("Something went wrong!");
     } else {
-        console.log(num);
-        if(num > 0){
-            positiveCount++;
-        }
+      if (balance < withdrawal) {
+        console.error("Insufficient balance!");
+      } else {
+        balance -= withdrawal;
+        console.log(`Withdrawal : ${withdrawal}`);
+        console.log(`Available Balance : ${balance}`);
+      }
     }
   }
+  count++;
+  console.log(`Attempt ${count}/3`);
 }
-
-console.log(`There are ${positiveCount} numbers are positive.`);
+console.log("Transaction session ended.");
